@@ -12,6 +12,10 @@ buka game → jalankan → telusuri → ubah sedikit → lihat hasilnya → ulan
 > **Suara:** kita **tidak** memakai text-to-speech. Anak-anak akan **mengisi suaranya sendiri**
 > (merekam). Caranya ada di [Bagian 9](#bagian-9--anak-anak-mengisi-suara-sendiri).
 
+> **Baru pertama kali pakai GDevelop? Mulai dari `MULAI-DARI-SINI.md` dulu.** Di sana kamu
+> membangun game mini 15 menit (di luar Telur Wazan) untuk memahami 3 kata ajaib GDevelop,
+> lalu tiap konsep dijembatani ke Telur Wazan. Setelah itu, tutorial ini akan terasa mudah.
+
 Dokumen pendamping: `README.md` (cara main), `PANDUAN-GDEVELOP.md` (peta isi proyek),
 `RENCANA.md` (keputusan desain).
 
