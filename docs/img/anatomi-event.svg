@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 424" font-family="'Segoe UI',Arial,sans-serif">
+  <rect x="2" y="2" width="836" height="420" rx="14" fill="#ffffff" stroke="#d0d7de" stroke-width="2"/>
+  <text x="24" y="34" font-size="18" font-weight="700" fill="#1f2328">EVENT — scene Menu · klik tombol wazan</text>
+  <line x1="24" y1="48" x2="816" y2="48" stroke="#d8dee4" stroke-width="1.5"/>
+
+  <!-- JIKA -->
+  <rect x="24" y="62" width="250" height="26" rx="13" fill="#1a7f37"/>
+  <text x="149" y="80" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">JIKA — syarat (Conditions)</text>
+
+  <g font-family="'DejaVu Sans Mono',Consolas,monospace" font-size="14">
+    <rect x="24" y="98" width="792" height="34" rx="7" fill="#eaf6ee" stroke="#b7e0c4"/>
+    <rect x="24" y="98" width="6" height="34" rx="3" fill="#1a7f37"/>
+    <text x="44" y="120" fill="#1f2328">Kursor/sentuhan ada di atas objek   →   TombolBab</text>
+
+    <rect x="24" y="140" width="792" height="34" rx="7" fill="#eaf6ee" stroke="#b7e0c4"/>
+    <rect x="24" y="140" width="6" height="34" rx="3" fill="#1a7f37"/>
+    <text x="44" y="162" fill="#1f2328">Tombol mouse dilepas   →   "Left"</text>
+  </g>
+  <text x="44" y="196" font-size="13" font-style="italic" fill="#57606a">↳ dua kondisi ditumpuk = keduanya harus benar (DAN)</text>
+
+  <!-- MAKA -->
+  <rect x="24" y="212" width="250" height="26" rx="13" fill="#0a5bd3"/>
+  <text x="149" y="230" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">MAKA — tindakan (Actions)</text>
+
+  <g font-family="'DejaVu Sans Mono',Consolas,monospace" font-size="14">
+    <rect x="24" y="248" width="792" height="34" rx="7" fill="#eaf1fc" stroke="#bcd3f5"/>
+    <rect x="24" y="248" width="6" height="34" rx="3" fill="#0a5bd3"/>
+    <text x="44" y="270" fill="#1f2328">Ubah variabel angka   →   BabTarget = TombolBab.bab</text>
+
+    <rect x="24" y="290" width="792" height="34" rx="7" fill="#eaf1fc" stroke="#bcd3f5"/>
+    <rect x="24" y="290" width="6" height="34" rx="3" fill="#0a5bd3"/>
+    <text x="44" y="312" fill="#1f2328">Mainkan suara   →   audio/sfx/klik.wav</text>
+
+    <rect x="24" y="332" width="792" height="34" rx="7" fill="#eaf1fc" stroke="#bcd3f5"/>
+    <rect x="24" y="332" width="6" height="34" rx="3" fill="#0a5bd3"/>
+    <text x="44" y="354" fill="#1f2328">Pindah ke scene lain   →   "Hutan"</text>
+  </g>
+
+  <line x1="24" y1="382" x2="816" y2="382" stroke="#d8dee4" stroke-width="1.5"/>
+  <text x="24" y="404" font-size="13" fill="#57606a">Baca keras-keras: “JIKA kursor di tombol DAN mouse dilepas, MAKA simpan pilihan, bunyi klik, pindah ke Hutan.”</text>
+</svg>

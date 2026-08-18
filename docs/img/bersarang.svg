@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" font-family="'Segoe UI',Arial,sans-serif">
+  <rect x="2" y="2" width="836" height="466" rx="14" fill="#ffffff" stroke="#d0d7de" stroke-width="2"/>
+  <text x="24" y="34" font-size="18" font-weight="700" fill="#1f2328">Bersarang — “aturan di dalam aturan” (memilih soal saat telur pecah)</text>
+  <line x1="24" y1="48" x2="816" y2="48" stroke="#d8dee4" stroke-width="1.5"/>
+
+  <!-- indentation guide lines -->
+  <line x1="44" y1="132" x2="44" y2="330" stroke="#e2c98b" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="84" y1="210" x2="84" y2="330" stroke="#b98bd8" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Level 0: induk -->
+  <g font-family="'DejaVu Sans Mono',Consolas,monospace">
+    <rect x="24" y="64" width="792" height="60" rx="8" fill="#fdf3d8" stroke="#e2c98b"/>
+    <circle cx="44" cy="82" r="11" fill="#b8860b"/>
+    <text x="44" y="87" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">1</text>
+    <text x="64" y="88" font-size="14" fill="#1f2328"><tspan font-weight="700" fill="#1a7f37">JIKA</tspan>  Status = "jalan"  DAN  Petualang menyentuh Telur</text>
+    <text x="64" y="112" font-size="14" fill="#1f2328"><tspan font-weight="700" fill="#0a5bd3">MAKA</tspan>  Telur → "pecah" · Status = "soal" · MauYa = Random(1)</text>
+  </g>
+
+  <!-- Level 1: repeat container (sub) -->
+  <g font-family="'DejaVu Sans Mono',Consolas,monospace">
+    <rect x="64" y="150" width="752" height="46" rx="8" fill="#f3e8fb" stroke="#b98bd8"/>
+    <circle cx="84" cy="173" r="11" fill="#8250df"/>
+    <text x="84" y="178" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif">2</text>
+    <text x="104" y="178" font-size="14" fill="#1f2328"><tspan font-weight="700" fill="#8250df">Repeat 30×</tspan>   (ulang isi di dalamnya sampai Ketemu = 1)</text>
+  </g>
+
+  <!-- Level 2: checks (sub of repeat) -->
+  <g font-family="'DejaVu Sans Mono',Consolas,monospace" font-size="14">
+    <rect x="104" y="214" width="712" height="40" rx="7" fill="#eaf6ee" stroke="#b7e0c4"/>
+    <rect x="104" y="214" width="6" height="40" rx="3" fill="#1a7f37"/>
+    <text x="122" y="239" fill="#1f2328"><tspan font-weight="700" fill="#1a7f37">JIKA</tspan> MauYa = 1  DAN  Soal[i].bab = BabTarget   →   Ketemu = 1</text>
+
+    <rect x="104" y="262" width="712" height="40" rx="7" fill="#eaf6ee" stroke="#b7e0c4"/>
+    <rect x="104" y="262" width="6" height="40" rx="3" fill="#1a7f37"/>
+    <text x="122" y="287" fill="#1f2328"><tspan font-weight="700" fill="#1a7f37">JIKA</tspan> MauYa = 0  DAN  Soal[i].bab ≠ BabTarget   →   Ketemu = 1</text>
+  </g>
+  <text x="122" y="325" font-size="13" font-weight="700" fill="#8250df" font-family="'Segoe UI',Arial,sans-serif">3</text>
+  <text x="140" y="325" font-size="13" font-style="italic" fill="#57606a" font-family="'Segoe UI',Arial,sans-serif">dua pengecek ini bersarang di dalam Repeat</text>
+
+  <!-- note box -->
+  <rect x="24" y="352" width="792" height="96" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="40" y="380" font-size="14" font-weight="700" fill="#1f2328">Cara membaca sarang:</text>
+  <text x="40" y="404" font-size="14" fill="#3a3f45">• Menjorok ke kanan = berada DI DALAM (bersarang) aturan di atasnya.</text>
+  <text x="40" y="426" font-size="14" fill="#3a3f45">• Sub-event hanya diperiksa kalau JIKA induknya benar lebih dulu.</text>
+  <text x="40" y="443" font-size="13" font-style="italic" fill="#57606a">Tiga tingkat di sini: collision (induk) → Repeat (sub) → dua pengecek (sub dari Repeat).</text>
+</svg>

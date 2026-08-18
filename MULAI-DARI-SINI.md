@@ -78,6 +78,8 @@ Event "klik tombol wazan" di scene `Menu` dibaca begini (menjorok = bagian di da
     • Pindah ke scene       →  "Hutan"
 ```
 
+![Anatomi sebuah Event GDevelop: bagian JIKA (kondisi) dan MAKA (aksi)](docs/img/anatomi-event.svg)
+
 Dua kondisi ditumpuk = keduanya harus benar (**DAN**). Kalau salah satu tidak, MAKA-nya tak jalan.
 
 > **Ajak anak:** biasakan **membaca event keras-keras**: *"JIKA kursor di tombol DAN mouse
@@ -180,6 +182,8 @@ Buka scene **Hutan → Events**, temukan tiga contoh ini dan baca strukturnya:
     ● JIKA Soal[SoalIdx].bab = BabTarget  MAKA Kunci = "ya"
     ● (lalu) isi teks panel dari Soal[SoalIdx]
 ```
+
+![Diagram event bersarang: collision telur sebagai induk, Repeat 30 sebagai sub-event, dua pengecek di dalamnya](docs/img/bersarang.svg)
 
 Perhatikan **tiga tingkat**: event collision (induk) → `Repeat` (sub) → dua JIKA pengecek (sub
 dari `Repeat`). Inilah "aturan di dalam aturan di dalam aturan".
