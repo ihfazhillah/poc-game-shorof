@@ -1,0 +1,15 @@
+{
+  "name": "Telur Wazan",
+  "short_name": "Telur Wazan",
+  "id": "com.keluarga.telurwazan",
+  "description": "Petualangan mencari telur di hutan sambil belajar wazan (shorof).",
+  "orientation": "landscape",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "black",
+  "categories": ["games", "entertainment"],
+  "icons": [{
+        "src": "ikon.png",
+        "sizes": "512x512"
+      }]
+}

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# GDevelop autosave / temp
+*.autosave
+game.json.autosave
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Env / secrets
+.env
+.env.*
+*.pem
+*.key
