@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<title>Buku Langkah Telur Wazan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&family=Amiri:wght@400;700&display=swap">
+
+<style>
+  :root{
+    --shell:#faf7f0; --surface:#ffffff; --ink:#241f17; --muted:#6d6553; --line:#e6ded0; --line-2:#d3c9b4;
+    --green:#1f7a43; --green-bg:#e7f3ea; --green-line:#b7dcc2;
+    --blue:#0a5bd3;  --blue-bg:#e9eefc;  --blue-line:#bcd3f5;
+    --amber:#c9821a; --amber-bg:#fbf0d8; --amber-line:#eccf8f;
+    --yolk:#f2b23c;
+    --shadow:0 1px 2px rgba(60,45,20,.06), 0 6px 20px rgba(60,45,20,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --shell:#1a1917; --surface:#232019; --ink:#f2ecdf; --muted:#b0a58f; --line:#38342a; --line-2:#4d4736;
+      --green:#6fce92; --green-bg:#16271c; --green-line:#2d5a3d;
+      --blue:#84b2f6;  --blue-bg:#14213a;  --blue-line:#2c4674;
+      --amber:#e6b25a; --amber-bg:#2b2413; --amber-line:#59492a;
+      --yolk:#e9ac3f;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --shell:#1a1917; --surface:#232019; --ink:#f2ecdf; --muted:#b0a58f; --line:#38342a; --line-2:#4d4736;
+    --green:#6fce92; --green-bg:#16271c; --green-line:#2d5a3d;
+    --blue:#84b2f6;  --blue-bg:#14213a;  --blue-line:#2c4674;
+    --amber:#e6b25a; --amber-bg:#2b2413; --amber-line:#59492a;
+    --yolk:#e9ac3f;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--shell); color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,sans-serif; font-size:15px; line-height:1.5; -webkit-font-smoothing:antialiased}
+  code,.mono{font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace; font-size:.9em}
+  code{background:rgba(125,110,80,.12); padding:1px 5px; border-radius:5px}
+  .ar{font-family:"Amiri",serif; direction:rtl; unicode-bidi:isolate; font-size:1.05em}
+  .wrap{max-width:780px; margin:0 auto; padding:26px 22px 60px}
+
+  .toolbar{display:flex; flex-wrap:wrap; align-items:center; gap:12px; max-width:780px; margin:14px auto 0; padding:0 22px}
+  .btn{font-family:"Baloo 2",cursive; font-weight:600; font-size:15px; cursor:pointer; border:none;
+    border-radius:10px; padding:9px 16px; color:#fff; background:var(--green); box-shadow:var(--shadow)}
+  .btn:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+  .hint{color:var(--muted); font-size:13px}
+
+  .cover{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:24px 26px; box-shadow:var(--shadow); margin-top:14px}
+  .eyebrow{font-family:"Baloo 2",cursive; font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:12px; color:var(--amber); margin:0 0 3px}
+  h1{font-family:"Baloo 2",cursive; font-weight:700; font-size:38px; line-height:1.04; margin:0 0 8px; text-wrap:balance}
+  h1 .egg{color:var(--yolk)}
+  .lede{margin:0; color:var(--muted); max-width:62ch}
+
+  .strip{display:flex; flex-wrap:wrap; gap:6px; margin-top:18px; padding-top:16px; border-top:1px dashed var(--line-2)}
+  .pill{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--ink);
+    background:var(--shell); border:1px solid var(--line-2); border-radius:999px; padding:4px 10px}
+  .pill .s{font-family:"Baloo 2",cursive; color:var(--amber)}
+  .arw{color:var(--muted)}
+
+  .golden{display:flex; align-items:center; gap:12px; margin:16px 0 0; background:var(--amber-bg); border:1px solid var(--amber-line); border-radius:12px; padding:12px 16px}
+  .golden .big{font-family:"Baloo 2",cursive; font-weight:700; color:var(--amber)}
+
+  .varline{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:12px; background:var(--blue-bg);
+    border:1px solid var(--blue-line); border-radius:12px; padding:11px 15px; font-size:13.5px}
+  .varline b{font-family:"Baloo 2",cursive; color:var(--blue); font-weight:700}
+  .varchip{font-family:ui-monospace,Menlo,monospace; font-size:12px; background:var(--surface); border:1px solid var(--blue-line); border-radius:7px; padding:2px 8px}
+
+  .roles{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0}
+  .role{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; color:var(--muted); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:5px 11px}
+  .role b{color:var(--ink); font-weight:700}
+
+  .refgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:16px}
+  .ref{background:var(--shell); border:1px solid var(--line-2); border-radius:12px; padding:14px 16px}
+  .ref h4{font-family:"Baloo 2",cursive; font-weight:600; font-size:13px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:0 0 9px}
+  table{border-collapse:collapse; width:100%; font-size:13px}
+  th,td{text-align:left; padding:4px 6px; border-bottom:1px solid var(--line)}
+  th{color:var(--muted); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:.03em}
+  td .ar{font-size:1.15em}
+  .yn{font-weight:700} .yes{color:var(--green)} .no{color:#b8622a}
+  :root[data-theme="dark"] .no{color:#e08a4a}
+
+  .ses{margin-top:26px}
+  .ses-head{display:flex; align-items:center; gap:14px; margin-bottom:12px}
+  .ses-num{flex:0 0 auto; font-family:"Baloo 2",cursive; font-weight:700; font-size:16px; color:#3a2a06; background:var(--yolk); border-radius:11px; padding:6px 12px; box-shadow:inset 0 -2px 0 rgba(0,0,0,.12)}
+  .ses-head h2{font-family:"Baloo 2",cursive; font-weight:700; font-size:23px; margin:0; line-height:1.1; flex:1; text-wrap:balance}
+  .ses-sub{display:block; font-family:"Nunito",sans-serif; font-weight:600; font-size:12.5px; color:var(--muted); margin-top:1px}
+  .grow{flex:0 0 auto; font-size:12px; font-weight:700; color:var(--blue); background:var(--blue-bg); border:1px solid var(--blue-line); border-radius:999px; padding:4px 11px; white-space:nowrap}
+  .grow.opt{color:var(--amber); background:var(--amber-bg); border-color:var(--amber-line)}
+  .grow.none{color:var(--muted); background:var(--shell); border-color:var(--line-2)}
+
+  .why{display:flex; gap:9px; align-items:flex-start; background:var(--amber-bg); border:1px solid var(--amber-line); border-radius:11px; padding:10px 13px; margin-bottom:12px; font-size:14px}
+  .why b{font-family:"Baloo 2",cursive; color:var(--amber); font-weight:700}
+
+  .step{display:flex; gap:12px; background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:14px; margin-bottom:10px; box-shadow:var(--shadow); break-inside:avoid; page-break-inside:avoid}
+  .tick{appearance:none; -webkit-appearance:none; flex:0 0 auto; width:20px; height:20px; margin:1px 0 0; border:2px solid var(--line-2); border-radius:6px; background:var(--surface); cursor:pointer; position:relative}
+  .tick:checked{background:var(--green); border-color:var(--green)}
+  .tick:checked::after{content:""; position:absolute; left:5px; top:1px; width:6px; height:11px; border:solid #fff; border-width:0 3px 3px 0; transform:rotate(42deg)}
+  .tick:focus-visible{outline:3px solid var(--amber); outline-offset:2px}
+  .step .body{flex:1; min-width:0}
+  .step h3{font-family:"Baloo 2",cursive; font-weight:600; font-size:15.5px; margin:0 0 5px; line-height:1.2; display:flex; gap:8px; align-items:baseline; flex-wrap:wrap}
+  .who{font-weight:700; font-size:11px; color:var(--muted); border:1px solid var(--line-2); border-radius:999px; padding:2px 8px; white-space:nowrap}
+  .step p{margin:0 0 6px} .step p:last-child{margin-bottom:0}
+  .chip{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:12px; background:var(--green-bg); color:var(--green); border:1px solid var(--green-line); border-radius:999px; padding:3px 10px}
+  .newvar{display:inline-flex; align-items:center; gap:5px; font-weight:700; font-size:11px; color:var(--blue); background:var(--blue-bg); border:1px solid var(--blue-line); border-radius:999px; padding:2px 9px}
+
+  .event{border:1px solid var(--line-2); border-radius:11px; overflow:hidden; margin:8px 0 0; background:var(--shell)}
+  .lane-h{font-family:"Baloo 2",cursive; font-weight:700; font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:5px 12px; color:#fff}
+  .lane-h.j{background:var(--green)} .lane-h.m{background:var(--blue)}
+  .rows{padding:8px 10px; display:flex; flex-direction:column; gap:6px}
+  .r{display:flex; gap:8px; align-items:flex-start; font-size:13.5px}
+  .r .bar{flex:0 0 auto; width:5px; align-self:stretch; border-radius:3px; margin-top:1px}
+  .r.j .bar{background:var(--green)} .r.m .bar{background:var(--blue)}
+  .r.sub{margin-left:20px} .r .bar.sub{background:var(--green)}
+  .arrow{color:var(--muted); font-weight:700}
+  .sayit{display:flex; gap:8px; align-items:flex-start; margin-top:8px; padding:9px 12px; background:var(--amber-bg); border:1px solid var(--amber-line); border-radius:10px; font-size:13.5px}
+  .sayit b{font-family:"Baloo 2",cursive; color:var(--amber); font-weight:700}
+
+  .paham{display:flex; gap:10px; align-items:flex-start; margin-top:6px; background:var(--green-bg); border:1.5px solid var(--green-line); border-radius:12px; padding:12px 15px; break-inside:avoid}
+  .paham b{font-family:"Baloo 2",cursive; color:var(--green); font-weight:700}
+  .paham.big{padding:16px 18px}
+  .paham.big .t{font-family:"Baloo 2",cursive; font-size:17px; color:var(--green); font-weight:700; display:block; margin-bottom:3px}
+
+  footer{margin-top:28px; text-align:center; color:var(--muted); font-size:12px}
+
+  /* global overview */
+  .overview{margin-top:26px; background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px; box-shadow:var(--shadow)}
+  .overview h2{font-family:"Baloo 2",cursive; font-weight:700; font-size:23px; margin:0 0 2px; line-height:1.1; text-wrap:balance}
+  .overview .sub{color:var(--muted); font-size:12.5px; font-weight:600; margin:0 0 12px}
+  .principle{border-left:4px solid var(--amber); background:var(--amber-bg); border-radius:0 10px 10px 0; padding:12px 15px; margin:0 0 16px; font-size:13.5px}
+  .principle b{color:var(--amber); font-family:"Baloo 2",cursive; font-weight:700}
+  .principle .ar{font-size:1.2em; font-weight:700}
+  .block-label{font-family:"Baloo 2",cursive; font-weight:600; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin:14px 0 7px}
+  .loop{display:flex; flex-wrap:wrap; align-items:center; gap:7px}
+  .lchip{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:13px; background:var(--shell); border:1px solid var(--line-2); border-radius:10px; padding:7px 11px}
+  .lchip.q{background:var(--green-bg); border-color:var(--green-line); color:var(--green)}
+  .lchip.win{background:var(--amber-bg); border-color:var(--amber-line); color:var(--amber)}
+  .lchip.scene{background:var(--blue-bg); border-color:var(--blue-line); color:var(--blue); font-family:"Baloo 2",cursive}
+  .loop .arw{font-size:15px}
+  .loop .back{font-size:12px; color:var(--muted); font-style:italic}
+  .transition{margin:16px 0 0; padding-top:14px; border-top:1px dashed var(--line-2); color:var(--muted); font-size:13.5px}
+  .transition b{color:var(--ink); font-family:"Baloo 2",cursive}
+
+  @media (max-width:560px){ .refgrid{grid-template-columns:1fr} h1{font-size:30px} .ses-head{flex-wrap:wrap} }
+
+  @media print{
+    :root{--shell:#fff; --surface:#fff; --ink:#1c1a15; --muted:#555; --line:#c9c2b3; --line-2:#a9a08c;
+      --green-bg:#eef7f0; --blue-bg:#eef2fc; --amber-bg:#fbf3e0; --shadow:none}
+    @page{size:A4; margin:12mm}
+    html,body{background:#fff}
+    body{font-size:10.5pt}
+    .toolbar{display:none !important}
+    .wrap{max-width:none; margin:0; padding:0}
+    *{box-shadow:none !important}
+
+    /* cover may break between its children if needed */
+    .cover{break-inside:auto; page-break-inside:auto}
+    /* Global overview: keep whole, on its own page */
+    .overview{break-before:page; page-break-before:always; break-inside:avoid; page-break-inside:avoid}
+
+    /* every small card stays whole (never sliced by a page edge) */
+    .step,.paham,.event,.why,.ref,.principle,.golden,.varline,.loop,
+    .roles,.strip,.refgrid,.ses-head,.sayit,.transition{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    tr,td,th,li,p{break-inside:avoid; page-break-inside:avoid}
+
+    /* headings never sit alone at a page bottom */
+    h1,h2,h3,.block-label{break-after:avoid; page-break-after:avoid}
+    h1{font-size:25pt}
+
+    /* one session per page */
+    .ses{break-before:page; page-break-before:always}
+    .ses:first-of-type{break-before:auto; page-break-before:auto}
+  }
+</style>
+
+<div class="toolbar">
+  <button class="btn" onclick="window.print()">🖨️ Cetak / Simpan PDF</button>
+  <span class="hint">Untuk berkas: <b>Cetak</b> → tujuan <b>“Simpan sebagai PDF”</b> (Ctrl/Cmd&nbsp;+&nbsp;P). Tiap sesi tercetak di halaman sendiri.</span>
+</div>
+
+<div class="wrap">
+
+  <!-- COVER -->
+  <div class="cover">
+    <p class="eyebrow">Buku Langkah · membangun bareng anak</p>
+    <h1><span class="egg">🥚</span> Telur Wazan — dari <span class="egg">Nano</span> ke Mini</h1>
+    <p class="lede">Tutorial step-by-step membangun game shorof di GDevelop. Mulai dari yang <b>paling hardcode</b> (tanpa variabel, sudah bisa dimainkan), lalu <b>variabel ditambah bertahap</b>, dan <b>array + acak paling belakang</b>. Centang tiap langkah setelah menekan Preview.</p>
+
+    <div class="strip">
+      <span class="pill"><span class="s">S2</span> Nano · hardcode</span><span class="arw">→</span>
+      <span class="pill"><span class="s">S3</span> + Skor</span><span class="arw">→</span>
+      <span class="pill"><span class="s">S4</span> + jawaban (variabel)</span><span class="arw">→</span>
+      <span class="pill"><span class="s">S5</span> + Status</span><span class="arw">→</span>
+      <span class="pill"><span class="s">S6</span> + acak <em style="font-weight:600;color:var(--muted)">(opsional)</em></span><span class="arw">→</span>
+      <span class="pill"><span class="s">S7</span> + menu</span><span class="arw">→</span>
+      <span class="pill"><span class="s">S8</span> + menang</span>
+    </div>
+
+    <div class="golden">
+      <span style="font-size:20px">🔁</span>
+      <div><span class="big">Aturan emas:</span> satu langkah kecil → tekan <b>Preview&nbsp;(▶)</b> → tanya <b>“apa yang berubah?”</b></div>
+    </div>
+
+    <div class="varline">
+      <b>Variabel bertahap:</b>
+      <span class="varchip">(tanpa)</span><span class="arw">→</span>
+      <span class="varchip">Skor</span><span class="arw">→</span>
+      <span class="varchip">Kunci · benar</span><span class="arw">→</span>
+      <span class="varchip">Status</span><span class="arw">→</span>
+      <span class="varchip">Soal[ ] (array)</span>
+    </div>
+
+    <div class="roles">
+      <span class="role">⚙️ <b>Insinyur</b> — menulis aturan (boleh kamu dulu, serahkan bertahap)</span>
+      <span class="role">🧩 <b>Perakit</b> — objek &amp; variabel</span>
+      <span class="role">🎨 <b>Seni &amp; Uji</b> — gambar, suara, Preview</span>
+    </div>
+
+    <div class="refgrid">
+      <div class="ref">
+        <h4>Data fi'il — dipakai mulai S6</h4>
+        <table>
+          <thead><tr><th>fi'il</th><th>arti</th><th>bab</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ar">نَصَرَ - يَنْصُرُ</span></td><td>menolong</td><td>1</td></tr>
+            <tr><td><span class="ar">كَتَبَ - يَكْتُبُ</span></td><td>menulis</td><td>1</td></tr>
+            <tr><td><span class="ar">دَخَلَ - يَدْخُلُ</span></td><td>masuk</td><td>1</td></tr>
+            <tr><td><span class="ar">عَلِمَ - يَعْلَمُ</span></td><td>mengetahui</td><td>2</td></tr>
+            <tr><td><span class="ar">شَرِبَ - يَشْرَبُ</span></td><td>minum</td><td>2</td></tr>
+            <tr><td><span class="ar">سَمِعَ - يَسْمَعُ</span></td><td>mendengar</td><td>2</td></tr>
+          </tbody>
+        </table>
+        <p class="hint" style="margin:8px 0 0">bab 1 = <span class="ar">فَعَلَ - يَفْعُلُ</span> · bab 2 = <span class="ar">فَعِلَ - يَفْعَلُ</span></p>
+      </div>
+      <div class="ref">
+        <h4>Dibuat vs ditinggalkan (dulu)</h4>
+        <table>
+          <thead><tr><th>bagian</th><th>Mini</th><th>penuh</th></tr></thead>
+          <tbody>
+            <tr><td>Petualang jalan</td><td class="yn yes">ya</td><td class="yn yes">ya</td></tr>
+            <tr><td>Telur → soal</td><td class="yn yes">ya</td><td class="yn yes">ya</td></tr>
+            <tr><td>Benar/Salah</td><td class="yn yes">ya</td><td class="yn yes">ya</td></tr>
+            <tr><td>Menang</td><td class="yn yes">ya</td><td class="yn yes">ya</td></tr>
+            <tr><td>Peta acak</td><td class="yn no">nanti</td><td class="yn yes">ya</td></tr>
+            <tr><td>Boneka + simpan</td><td class="yn no">nanti</td><td class="yn yes">ya</td></tr>
+            <tr><td>Terbang ke keranjang</td><td class="yn no">nanti</td><td class="yn yes">ya</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL OVERVIEW (muhkam dulu, baru tafshil) -->
+  <div class="overview">
+    <h2>Lihat keseluruhannya dulu — <span style="color:var(--yolk)">global</span></h2>
+    <p class="sub">Pahami gambaran utuhnya lebih dulu, baru dirinci langkah demi langkah.</p>
+
+    <div class="principle">
+      <b>Prinsip: global → rinci.</b> Kita kokohkan gambaran <b>keseluruhan</b> dulu, baru <b>dirinci</b>.
+      Seperti firman Allah tentang Al-Qur'an: <span class="ar">كِتَابٌ أُحْكِمَتْ آيَاتُهُ ثُمَّ فُصِّلَتْ</span>
+      — “Kitab yang ayat-ayatnya <b>dikokohkan</b> (global), kemudian <b>dirinci</b>” (QS Hud: 1).
+    </div>
+
+    <p style="margin:0 0 2px">Seluruh game, satu kalimat: <b>petualang mencari telur di hutan; tiap telur berisi satu fi'il; pemain menebak apakah fi'il itu masuk wazan yang dipilih; kumpulkan cukup telur benar → menang.</b></p>
+
+    <p class="block-label">Lingkaran main (inti)</p>
+    <div class="loop">
+      <span class="lchip">🚶 Jalan</span><span class="arw">→</span>
+      <span class="lchip">🥚 Sentuh telur</span><span class="arw">→</span>
+      <span class="lchip q">📖 Muncul fi'il (soal)</span><span class="arw">→</span>
+      <span class="lchip">🅰️ Jawab YA / TIDAK</span><span class="arw">→</span>
+      <span class="lchip">✅ Benar / ❌ Salah</span><span class="arw">→</span>
+      <span class="back">↺ ulang…</span><span class="arw">→</span>
+      <span class="lchip win">🏆 Menang</span>
+    </div>
+
+    <p class="block-label">Tiga layar (scene)</p>
+    <div class="loop">
+      <span class="lchip scene">Menu</span><span class="arw">→</span>
+      <span class="lchip scene">Hutan</span><span class="arw">→</span>
+      <span class="lchip scene">Menang</span>
+      <span style="color:var(--muted); font-size:12.5px; margin-left:6px">· objek utama: Petualang, Telur, tombol YA/TIDAK, teks soal &amp; skor</span>
+    </div>
+
+    <p class="transition">Itu <b>global</b>-nya. Berikutnya kita <b>rinci</b> (tafshil) — dibangun bertahap dari yang paling sederhana (hardcode), lalu variabel ditambah satu per satu.</p>
+  </div>
+
+  <!-- SESI 2 : NANO — HARDCODE, TANPA VARIABEL -->
+  <section class="ses">
+    <div class="ses-head"><span class="ses-num">S2</span>
+      <h2>Nano — hardcode, tanpa variabel<span class="ses-sub">versi terkecil yang sudah bisa dimainkan</span></h2>
+      <span class="grow none">variabel: tidak ada</span></div>
+
+    <div class="why"><span>🎯</span><div><b>Ide:</b> paling sederhana dulu. Fi'il ditulis <b>langsung</b>, dan jawaban benar/salah <b>dibakar ke dalam aturan</b> — belum ada variabel sama sekali.</div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>1 · Hutan &amp; petualang yang bisa jalan <span class="who">🧩</span></h3>
+        <p>Latar <code>Rumput</code> (<b>Tiled Sprite</b>) besar + objek <code>Petualang</code> dengan behavior <b>Top-down movement</b>.</p>
+        <p><span class="chip">▶ bisa jalan pakai panah</span></p></div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>2 · Telur + tulis fi'il langsung <span class="who">🧩 · 🎨</span></h3>
+        <p>Taruh <b>1</b> <code>Telur</code>. Buat <code>TeksSoal</code> berisi <b>langsung</b> <span class="ar">نَصَرَ - يَنْصُرُ</span> + baris “Termasuk wazan <span class="ar">فَعَلَ - يَفْعُلُ</span>؟”. Buat <code>TombolYa</code>, <code>TombolTidak</code>, <code>TeksHasil</code> — <b>sembunyikan</b> dulu.</p></div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>3 · Aturan 1 — sentuh telur, munculkan soal <span class="who">⚙️</span></h3>
+        <div class="event">
+          <div class="lane-h j">JIKA</div>
+          <div class="rows"><div class="r j"><span class="bar"></span><span><code>Petualang</code> menyentuh <code>Telur</code></span></div></div>
+          <div class="lane-h m">MAKA</div>
+          <div class="rows">
+            <div class="r m"><span class="bar"></span><span>tampilkan <code>TeksSoal</code> + kedua tombol</span></div>
+            <div class="r m"><span class="bar"></span><span>sembunyikan <code>Telur</code></span></div>
+          </div>
+        </div></div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>4 · Aturan 2 — klik YA <span class="who">⚙️</span></h3>
+        <div class="event">
+          <div class="lane-h j">JIKA</div>
+          <div class="rows"><div class="r j"><span class="bar"></span><span>klik <code>TombolYa</code></span></div></div>
+          <div class="lane-h m">MAKA</div>
+          <div class="rows">
+            <div class="r m"><span class="bar"></span><span><code>TeksHasil</code> = “Benar!”</span></div>
+            <div class="r m"><span class="bar"></span><span>sembunyikan kedua tombol</span></div>
+          </div>
+        </div>
+        <div class="sayit"><span>🔊</span><div><b>Baca keras:</b> “Fi'il ini <i>memang</i> masuk wazannya, jadi klik YA → Benar!” Jawaban <b>dibakar langsung</b>, belum pakai variabel.</div></div></div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>5 · Aturan 3 — klik TIDAK <span class="who">⚙️</span></h3>
+        <div class="event">
+          <div class="lane-h j">JIKA</div>
+          <div class="rows"><div class="r j"><span class="bar"></span><span>klik <code>TombolTidak</code></span></div></div>
+          <div class="lane-h m">MAKA</div>
+          <div class="rows">
+            <div class="r m"><span class="bar"></span><span><code>TeksHasil</code> = “Salah”</span></div>
+            <div class="r m"><span class="bar"></span><span>sembunyikan kedua tombol</span></div>
+          </div>
+        </div></div></div>
+
+    <div class="paham big"><span style="font-size:22px">🌟</span><div><span class="t">Sudah jadi game! (tanpa satu variabel pun)</span>Sentuh telur → fi'il muncul → jawab → Benar/Salah.</div></div>
+    <div class="sayit"><span>👀</span><div><b>Pancing rasa butuh:</b> “Kalau kita mau telur ke-2 yang jawabannya <i>beda</i>, kita harus nulis aturan baru lagi… capek ya? Besok kita pakai <b>variabel</b> biar satu aturan cukup.”</div></div>
+  </section>
+
+  <!-- SESI 3 : VARIABEL PERTAMA = SKOR -->
+  <section class="ses">
+    <div class="ses-head"><span class="ses-num">S3</span>
+      <h2>Variabel pertama: <code style="font-size:.8em">Skor</code><span class="ses-sub">variabel paling mudah — sebuah penghitung</span></h2>
+      <span class="grow">+ Skor</span></div>
+
+    <div class="why"><span>💭</span><div><b>Kenapa mulai dari Skor:</b> variabel angka itu cuma “papan hitung”. Paling gampang dipahami anak.</div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>1 · Buat papan skor <span class="who">🧩</span> <span class="newvar">＋ variabel Skor</span></h3>
+        <p>Variabel scene <code>Skor</code> = 0, dan teks <code>TeksSkor</code> “0”.</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>2 · Skor naik saat benar <span class="who">⚙️</span></h3>
+        <p>Di Aturan 2 (klik YA), tambah aksi: <code>Skor</code> <span class="arrow">+</span> 1, lalu perbarui <code>TeksSkor</code>.</p></div></div>
+
+    <div class="paham"><span>✅</span><div><b>Tanda paham:</b> jawaban benar menaikkan angka skor. Anak kenal “variabel = kotak angka”.</div></div>
+  </section>
+
+  <!-- SESI 4 : VARIABEL JAWABAN = Kunci + benar -->
+  <section class="ses">
+    <div class="ses-head"><span class="ses-num">S4</span>
+      <h2>Variabel jawaban: <code style="font-size:.78em">Kunci</code> &amp; <code style="font-size:.78em">benar</code><span class="ses-sub">di sinilah variabel mulai <i>menghemat</i> kerja</span></h2>
+      <span class="grow">+ jawaban</span></div>
+
+    <div class="why"><span>🤔</span><div><b>Kenapa perlu (masalah dari S2):</b> menulis aturan baru untuk tiap telur itu capek. Solusi: telur <b>menyimpan sendiri</b> jawabannya di variabel, lalu <b>satu</b> aturan berlaku untuk semua telur.</div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>1 · Tiap telur simpan jawabannya <span class="who">🧩</span> <span class="newvar">＋ variabel objek fiil, benar</span></h3>
+        <p>Beri <b>variabel objek</b> pada <code>Telur</code>: <code>fiil</code> (teks) &amp; <code>benar</code> (<code>1</code> = masuk wazan, <code>0</code> = tidak).</p></div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>2 · Aturan 1 pakai isi telur <span class="who">⚙️</span> <span class="newvar">＋ variabel Kunci</span></h3>
+        <div class="event">
+          <div class="lane-h j">JIKA</div>
+          <div class="rows"><div class="r j"><span class="bar"></span><span><code>Petualang</code> menyentuh <code>Telur</code></span></div></div>
+          <div class="lane-h m">MAKA</div>
+          <div class="rows">
+            <div class="r m"><span class="bar"></span><span><code>TeksSoal</code> <span class="arrow">=</span> <code>Telur.fiil</code></span></div>
+            <div class="r m"><span class="bar"></span><span><code>Kunci</code> <span class="arrow">=</span> <code>Telur.benar</code> · tampilkan tombol · sembunyikan telur</span></div>
+          </div>
+        </div></div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>3 · Aturan 2 &amp; 3 baca <code>Kunci</code> <span class="who">⚙️</span></h3>
+        <div class="event">
+          <div class="lane-h j">JIKA</div>
+          <div class="rows"><div class="r j"><span class="bar"></span><span>klik <code>TombolYa</code></span></div></div>
+          <div class="lane-h m">MAKA (2 pengecek — bersarang)</div>
+          <div class="rows">
+            <div class="r sub"><span class="bar sub"></span><span><b>JIKA</b> <code>Kunci</code> = 1 <span class="arrow">→</span> “Benar!” (+ <code>Skor</code>)</span></div>
+            <div class="r sub"><span class="bar sub"></span><span><b>JIKA</b> <code>Kunci</code> = 0 <span class="arrow">→</span> “Salah”</span></div>
+          </div>
+        </div>
+        <p style="margin-top:7px">Untuk <code>TombolTidak</code>: kebalikannya (0 → “Benar!”, 1 → “Salah”).</p></div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>4 · Sekarang tambah telur sebanyak-banyaknya <span class="who">🧩 · 🎨</span></h3>
+        <p>Salin telur, ubah <code>fiil</code>/<code>benar</code> — <b>tanpa menulis aturan baru</b>. Contoh: <span class="ar">كَتَبَ - يَكْتُبُ</span> → <code>benar=1</code>, <span class="ar">عَلِمَ - يَعْلَمُ</span> → <code>benar=0</code>.</p></div></div>
+
+    <div class="paham"><span>✅</span><div><b>Tanda paham:</b> banyak telur berbeda, tapi <b>aturannya tetap satu set</b>. Anak merasakan <i>kenapa variabel berguna</i>.</div></div>
+  </section>
+
+  <!-- SESI 5 : STATUS -->
+  <section class="ses">
+    <div class="ses-head"><span class="ses-num">S5</span>
+      <h2>“Lampu lalu lintas” <code style="font-size:.8em">Status</code><span class="ses-sub">variabel teks — konsep terpenting</span></h2>
+      <span class="grow">+ Status</span></div>
+
+    <div class="why"><span>🚦</span><div><b>Kenapa perlu:</b> saat soal muncul, petualang <b>masih bisa jalan &amp; menyentuh telur lain</b> → berantakan. Pasang penjaga.</div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>1 · Buat <code>Status</code> <span class="who">⚙️</span> <span class="newvar">＋ variabel Status</span></h3>
+        <p>Variabel scene <code>Status</code> = <code>"jalan"</code>. Ibarat lampu: <b>hijau</b> boleh gerak, <b>merah</b> berhenti (jawab dulu).</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>2 · Pasang penjaga <span class="who">⚙️</span></h3>
+        <p>Beri event <b>gerak</b> &amp; <b>sentuh-telur</b> kondisi tambahan <code>Status</code> = <code>"jalan"</code>.</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>3 · Ganti lampu <span class="who">⚙️</span></h3>
+        <p>Sentuh telur → <code>Status</code> = <code>"soal"</code>. Sesudah menjawab → <code>Status</code> = <code>"jalan"</code> lagi.</p></div></div>
+
+    <div class="paham"><span>✅</span><div><b>Tanda paham:</b> saat soal muncul petualang berhenti; setelah menjawab bisa jalan lagi. Anak paham <i>kenapa</i> butuh <code>Status</code>.</div></div>
+  </section>
+
+  <!-- SESI 6 : ARRAY + ACAK (OPSIONAL) -->
+  <section class="ses">
+    <div class="ses-head"><span class="ses-num">S6</span>
+      <h2>Daftar &amp; acak: array <code style="font-size:.78em">Soal</code><span class="ses-sub">konsep paling “programmer” — dilakukan paling belakang</span></h2>
+      <span class="grow opt">opsional / lanjut</span></div>
+
+    <div class="why"><span>💭</span><div><b>Kenapa terakhir:</b> array itu lompatan besar. Baru masuk akal setelah anak paham variabel biasa. <b>Boleh dilewati</b> — game sudah bagus tanpa ini.</div></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>1 · Buat daftar <span class="who">🧩 · ⚙️</span> <span class="newvar">＋ variabel array Soal</span></h3>
+        <p>Variabel global <code>Soal</code> = daftar (array) 6 fi'il dari kartu depan (tiap item: <code>fiil</code>, <code>bab</code>) + <code>BabTarget</code> = 1.</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>2 · Ambil acak <span class="who">⚙️</span></h3>
+        <p>Saat telur disentuh: <code>SoalIdx = Random(VariableChildCount(Soal) - 1)</code>; isi <code>TeksSoal</code> dari <code>Soal[SoalIdx].fiil</code>.</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>3 · Kunci otomatis <span class="who">⚙️</span></h3>
+        <p>Ganti cara isi <code>Kunci</code>: <b>JIKA</b> <code>Soal[SoalIdx].bab</code> = <code>BabTarget</code> → 1, selain itu → 0. (Telur tak perlu simpan jawaban lagi.)</p></div></div>
+
+    <div class="paham"><span>✅</span><div><b>Tanda paham:</b> fi'il berganti-ganti sendiri dari satu daftar — persis cara game aslinya (81 fi'il).</div></div>
+  </section>
+
+  <!-- SESI 7 : MENU -->
+  <section class="ses">
+    <div class="ses-head"><span class="ses-num">S7</span>
+      <h2>Menu pilih wazan<span class="ses-sub">variabel objek pada tombol + pindah scene</span></h2>
+      <span class="grow">+ menu</span></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>1 · Scene Menu <span class="who">🧩</span></h3>
+        <p>Scene <code>Menu</code> dengan 2 <code>TombolBab</code>. Beri tiap tombol <b>variabel objek</b> <code>bab</code> = 1 &amp; 2 + label wazannya.</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>2 · Klik → pilih → main <span class="who">⚙️</span></h3>
+        <div class="event">
+          <div class="lane-h j">JIKA</div>
+          <div class="rows"><div class="r j"><span class="bar"></span><span>kursor di <code>TombolBab</code> · klik kiri dilepas</span></div></div>
+          <div class="lane-h m">MAKA</div>
+          <div class="rows">
+            <div class="r m"><span class="bar"></span><span><code>BabTarget</code> <span class="arrow">=</span> <code>TombolBab.bab</code></span></div>
+            <div class="r m"><span class="bar"></span><span>pindah ke scene <code>Hutan</code></span></div>
+          </div>
+        </div></div></div>
+
+    <div class="paham"><span>✅</span><div><b>Tanda paham:</b> pilih wazan dulu, baru main; pilihan mengubah jawaban yang benar.</div></div>
+  </section>
+
+  <!-- SESI 8 : MENANG -->
+  <section class="ses">
+    <div class="ses-head"><span class="ses-num">S8</span>
+      <h2>Layar Menang — “Mini” utuh<span class="ses-sub">lalu bandingkan dengan game asli</span></h2>
+      <span class="grow">+ menang</span></div>
+
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>1 · Scene Menang <span class="who">🧩 · 🎨</span></h3>
+        <p>Scene <code>Menang</code>: teks “Hebat!” + tombol “Main lagi” → <code>Menu</code>.</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>2 · Syarat menang <span class="who">⚙️</span></h3>
+        <p>Di <code>Hutan</code>: <b>JIKA</b> <code>Skor</code> ≥ target <b>MAKA</b> pindah ke <code>Menang</code>.</p></div></div>
+    <div class="step"><input class="tick" type="checkbox">
+      <div class="body"><h3>3 · Bandingkan &amp; poles <span class="who">semua</span></h3>
+        <p>Buka <code>game.json</code> asli: temukan tiap bagian mini (“ini yang kita buat!”), lihat tambahannya (peta acak, kepala terpisah, Tween, boneka + Storage). Ganti aset/suara dengan karya anak.</p></div></div>
+
+    <div class="paham big"><span style="font-size:22px">🏆</span><div><span class="t">Telur Wazan Mini — selesai!</span>Pilih wazan → main → kumpulkan cukup → Menang. Game penuh = ini + peta acak, boneka, dan animasi terbang.</div></div>
+  </section>
+
+  <footer>
+    <p>Buku Langkah · dari <span class="mono">PANDUAN-MENGAJAR.md</span> &amp; <span class="mono">MULAI-DARI-SINI.md</span> — proyek Telur Wazan</p>
+  </footer>
+</div>
+
+</body>
+</html>
