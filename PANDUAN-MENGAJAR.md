@@ -194,63 +194,71 @@ memperbanyak soal — persis seperti game penuh.)*
 
 > Sesudah ini, **mulai membangun dari Sesi 2.**
 
-### Sesi 2 — Petualang berjalan di hutan (teknik: pel. 2, 10)
-- **Tujuan:** Objek + Behavior + latar + kamera.
-- **Bangun:** objek **`Petualang`** (aset `petualang_badan_*`, behavior **Top-down movement**);
-  latar **`Rumput`** (Tiled) besar; beberapa **`Pohon`**; kamera **Center on `Petualang`**.
-- **Peran:** 🎨 impor/gambar aset & uji; 🧩 taruh objek + atur kamera; ⚙️ pasang & setel behavior.
-- **Tanda paham:** bisa berjalan di hutan, kamera mengikuti.
+> **Karena anak belum kenal konsep programming**, kita mulai dari **yang terkecil yang sudah bisa
+> dimainkan** — "Telur Wazan **Nano**" (Sesi 2, hanya **3 aturan**) — lalu **tumbuhkan satu konsep
+> per sesi**, tiap kali karena ada kebutuhan yang mereka rasakan. (Nano bahkan lebih kecil dari
+> kolom "Mini" di tabel 5a: belum ada skor, `Status`, daftar, menu, atau menang — semua itu
+> ditambahkan bertahap di Sesi 3–7.)
+>
+> **Di awal, kamu (yang cepat paham) boleh memegang peran ⚙️ Insinyur** sambil anak mengerjakan
+> 🎨 seni, 🧩 perakitan, dan pengujian; **serahkan logika bertahap** begitu ada anak yang mulai
+> "klik". Aturan emas tetap: **satu langkah kecil → Preview → "apa yang berubah?"**
 
-### Sesi 3 — Telur & skor (teknik: pel. 3, 4, 5, 7)
-- **Tujuan:** collision + variabel + animasi.
-- **Bangun:** taruh **3 `Telur`** (animasi `utuh`; `pecah` dari `telur_pecah1..3`). HUD
-  **`TeksSkor`** "0 / 3" (variabel **`Skor`**). Event: *JIKA `Petualang` sentuh `Telur` MAKA
-  Telur → "pecah", `Skor` +1, perbarui teks, hapus telur.* (Sementara belum ada soal.)
-- **Peran:** 🎨 aset telur & uji; 🧩 HUD skor + variabel; ⚙️ event collision.
-- **Tanda paham:** sentuh telur → pecah, skor naik.
+### Sesi 2 — "Telur Wazan Nano": versi terkecil yang sudah bisa dimainkan
+- **Tujuan:** satu game utuh **paling kecil** — sentuh telur, muncul fi'il, jawab YA/TIDAK, benar/salah.
+- **Bangun (langkah super-kecil, Preview tiap langkah):**
+  1. Latar **`Rumput`** (Tiled) + **`Petualang`** (behavior **Top-down**). → *Preview: bisa jalan.*
+  2. Taruh **1 `Telur`**. Beri **variabel objek**: `fiil` = `"نَصَرَ - يَنْصُرُ"`, `benar` = `1`.
+  3. Buat teks & tombol (sembunyikan dulu): **`TeksSoal`**, **`TombolYa`**, **`TombolTidak`**, **`TeksHasil`**.
+  4. **Aturan 1** — *JIKA `Petualang` sentuh `Telur` MAKA* `TeksSoal` = `Telur.fiil`; simpan variabel
+     `Kunci` = `Telur.benar`; tampilkan tombol; sembunyikan telur.
+  5. **Aturan 2** — *JIKA klik `TombolYa` MAKA* (sub) *JIKA `Kunci` = 1* → `TeksHasil` "Benar!"; (sub)
+     *JIKA `Kunci` = 0* → "Salah". Sembunyikan tombol.
+  6. **Aturan 3** — *JIKA klik `TombolTidak` MAKA* kebalikannya (`Kunci`=0 → "Benar!"; `Kunci`=1 → "Salah").
+  7. Tambah **2 telur lagi** dengan `fiil`/`benar` berbeda (satu masuk wazan → `benar`=1, satu tidak → 0).
+- **Peran:** 🎨 aset & rekam "Benar/Salah" & uji; 🧩 taruh objek + beri variabel objek tiap telur;
+  ⚙️ (kamu dulu) tiga aturan itu, sambil **membacakannya keras-keras** ke anak.
+- **Tanda paham:** sentuh telur → fi'il muncul → jawab → benar/salah. **Sudah jadi game!** (sengaja
+  tanpa `Status`, daftar, menu, atau menang.)
 
-### Sesi 4 — Telur memunculkan SOAL + mode `Status` (teknik: pel. 15, 11, 6) — inti
-- **Tujuan:** state machine + panel + tombol.
-- **Bangun:** variabel **`Status`** ("jalan"/"soal"). Objek di layer **`UI`**: `PanelSoal`,
-  `TeksSoalArab`, `TeksPertanyaan`, `TombolYa`, `TombolTidak` (kelompokkan jadi grup `GrupSoal`,
-  sembunyikan di awal). Ubah event telur: *JIKA `Status`="jalan" DAN sentuh Telur MAKA
-  `Status`="soal", telur pecah, tampilkan `GrupSoal`* dengan **fi'il tetap** dulu (mis.
-  نَصَرَ - يَنْصُرُ) + "Apakah termasuk wazan فَعَلَ - يَفْعُلُ؟". **Beri semua event gerak
-  penjaga `Status`="jalan".**
-- **Peran:** ⚙️ `Status` + penjaga (fokus); 🧩 rakit panel & tombol di layer UI; 🎨 uji "gerak
-  berhenti saat panel muncul?".
-- **Tanda paham:** sentuh telur → berjalan terkunci, panel soal muncul.
+> Inilah "paling sederhana": **3 aturan**, satu scene. Sesi berikutnya menambah **satu** hal saja tiap kali.
 
-### Sesi 5 — Benar vs Salah (teknik: pel. 5 + sarang 0.5–0.6)
-- **Tujuan:** cabang keputusan dengan `Kunci`/`Jawaban`.
-- **Bangun:** variabel **`Kunci`**, **`Jawaban`**. Klik `TombolYa` → `Jawaban`="ya"; `TombolTidak`
-  → "tidak". (Fi'il masih tetap; set `Kunci`="ya" manual.) Lalu: *JIKA `Jawaban` = `Kunci` MAKA
-  benar (`Skor`+1, `Status`="jalan", hapus telur, suara "Benar")* ; *JIKA `Jawaban` ≠ `Kunci` MAKA
-  salah (tampilkan wazan yang benar, suara "Salah", lalu `Status`="jalan")*.
-- **Peran:** ⚙️ dua cabang (bersarang di bawah "sudah menjawab"); 🎨 rekam suara benar/salah & uji;
-  🧩 rapikan teks pesan.
-- **Tanda paham:** jawab benar → skor naik; salah → muncul wazan yang benar.
+### Sesi 3 — Tambah skor & lebih banyak telur (teknik: pel. 4)
+- **Tumbuh dari Nano:** tambah teks **`TeksSkor`** "0" + variabel **`Skor`**; di cabang **Benar**,
+  tambah satu aksi `Skor` +1 & perbarui teks. Sebar beberapa telur (tiap telur `fiil`/`benar` sendiri).
+- **Peran:** 🧩 HUD skor; ⚙️ tambah 1 aksi `Skor +1`; 🎨 uji & sumbang fi'il baru.
+- **Tanda paham:** jawaban benar menaikkan skor; ada beberapa telur berbeda.
 
-### Sesi 6 — Fi'il ACAK dari daftar (teknik: pel. 16) — inti data
-- **Tujuan:** array + structure + Random (model data asli, versi kecil).
-- **Bangun:** isi variabel global **`Soal`** (6 structure) & **`NamaBab`** (Bagian 5b); `BabTarget`=1.
-  Saat telur pecah: `SoalIdx = Random(VariableChildCount(Soal) - 1)`; isi panel dari
-  `Soal[SoalIdx].madhi`, `.mudhari`, `.arti`; **`Kunci` = "ya" jika `Soal[SoalIdx].bab` =
-  `BabTarget`, selain itu "tidak"**.
-- **Peran:** ⚙️ array + pemilihan acak + `Kunci` otomatis; 🧩 mengisi data `Soal`; 🎨 uji ragam fi'il.
-- **Tanda paham:** fi'il berganti-ganti; jawaban YA/TIDAK jadi benar-benar bermakna.
+### Sesi 4 — Rapikan dengan "lampu lalu lintas" `Status` (teknik: pel. 15)
+- **Kenapa (biar terasa perlu):** saat soal muncul, petualang **masih bisa jalan & menyentuh telur
+  lain** → berantakan. Kita pasang penjaga.
+- **Tumbuh:** variabel **`Status`** ("jalan"/"soal"). Beri event **gerak & sentuh-telur** penjaga
+  `Status`="jalan"; saat telur disentuh → `Status`="soal"; sesudah menjawab → kembali `"jalan"`.
+- **Peran:** ⚙️ `Status` + penjaga (mulai libatkan anak yang penasaran); 🎨 uji "gerak berhenti saat soal?".
+- **Tanda paham:** saat soal muncul petualang berhenti; setelah menjawab bisa jalan lagi. **Konsep
+  terpenting** (state machine) — dan sekarang mereka paham *kenapa* dibutuhkan.
 
-### Sesi 7 — Menu pilih wazan + scene Menang (teknik: pel. 12, 13, 6)
-- **Tujuan:** variabel objek + pindah scene + kondisi menang.
-- **Bangun:** scene **`Menu`**: 2 `TombolBab` dengan **variabel objek `bab`** (1 & 2) + label wazan;
-  klik → `BabTarget = TombolBab.bab` → scene `Hutan`. Scene **`Menang`**: dari Hutan, *JIKA `Skor`
-  ≥ `TargetTelur` MAKA scene `Menang`* (teks "Hebat!" + tombol "Main lagi" → `Menu`).
-- **Peran:** ⚙️ event tombol + menang; 🧩 tata scene Menu & Menang; 🎨 aset tombol/teks & uji alur.
-- **Tanda paham:** pilih wazan → main → kumpulkan cukup → **Menang** → kembali ke Menu. **Ini sudah
-  "Telur Wazan Mini" yang utuh.**
+### Sesi 5 — (opsional/lanjut) Fi'il ACAK dari daftar (teknik: pel. 16)
+- **Kapan:** kalau anak sudah nyaman. **Boleh dilewati dulu** — Nano + skor + `Status` sudah game yang bagus.
+- **Kenapa:** daripada menaruh fi'il di tiap telur satu-satu, simpan **daftar** & ambil **acak**.
+- **Tumbuh:** variabel global **`Soal`** (6 fi'il, Bagian 5b) + `BabTarget`. Saat telur disentuh:
+  `SoalIdx = Random(VariableChildCount(Soal) - 1)`; isi `TeksSoal` dari `Soal[SoalIdx]`; ganti
+  `Kunci` dengan pembanding: `Soal[SoalIdx].bab` = `BabTarget` → benar, selain itu salah.
+- **Tanda paham:** fi'il berganti-ganti sendiri, tak perlu diisi per telur.
+
+### Sesi 6 — Menu pilih wazan (teknik: pel. 12, 13)
+- **Tumbuh:** scene **`Menu`** dengan 2 `TombolBab` (**variabel objek** `bab` = 1 & 2) + label wazan;
+  klik → `BabTarget = TombolBab.bab` → pindah scene ke hutan.
+- **Peran:** ⚙️ event tombol + pindah scene; 🧩 tata scene Menu; 🎨 aset tombol & uji.
+- **Tanda paham:** pilih wazan dulu, baru main; pilihan mengubah jawaban yang benar.
+
+### Sesi 7 — Layar Menang (teknik: pel. 6, 12)
+- **Tumbuh:** scene **`Menang`**: *JIKA `Skor` ≥ target MAKA pindah ke `Menang`* (teks "Hebat!" +
+  tombol "Main lagi" → `Menu`).
+- **Peran:** ⚙️ event menang; 🧩 tata scene Menang; 🎨 aset & uji alur.
+- **Tanda paham:** kumpulkan cukup → Menang → kembali ke Menu. **Sekarang jadi "Telur Wazan Mini" utuh.**
 
 ### Sesi 8 — Bandingkan dengan yang asli & poles (`TUTORIAL.md`)
-- **Tujuan:** sadar game penuh = mini ini + beberapa tambahan.
 - **Bersama:** buka `game.json` asli. Temukan tiap bagian mini di sana ("ini yang kita buat!"), lalu
   lihat yang **ditambahkan**: peta acak, kepala terpisah, telur terbang (Tween), boneka + simpan
   (Storage), adegan salah bertahap. Ganti aset/suara mini dengan karya mereka; baca satu event
@@ -260,8 +268,8 @@ memperbanyak soal — persis seperti game penuh.)*
 - **Tanda paham:** menunjuk fitur asli dan berkata *"ini versi besar dari punya kita; yang baru cuma
   peta acak, boneka, dan animasi terbang."*
 
-> Lanjutan: perbanyak soal (tambah baris di `Soal`), tambahkan satu per satu fitur penuh mengikuti
-> `TUTORIAL.md` Bagian 8–11 (peta acak → tween → koleksi).
+> Lanjutan: perbanyak fi'il, lalu tambahkan satu-per-satu fitur penuh mengikuti `TUTORIAL.md`
+> Bagian 8–11 (peta acak → tween → koleksi).
 
 ---
 
